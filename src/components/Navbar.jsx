@@ -6,7 +6,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     // Resume file should be placed in "public/resume.pdf"
-    const resumeLink = "/resume.pdf";
+    const resumeLink = `${import.meta.env.BASE_URL}resume.pdf`;
 
     const navLinks = [
         { name: "About", href: "#about" },
@@ -42,7 +42,7 @@ const Navbar = () => {
                     alignItems: 'center',
                     gap: '0.5rem'
                 }}>
-                    <img src="/logo.svg" alt="KP Logo" style={{ height: '40px', width: '40px' }} />
+                    <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="KP Logo" style={{ height: '40px', width: '40px' }} />
                     <span>&lt;Kaushal Patel/&gt;</span>
                 </a>
 
