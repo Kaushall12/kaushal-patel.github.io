@@ -7,7 +7,7 @@ export const resumeData = {
     phone: "+91 9427151970",
     linkedin: "https://www.linkedin.com/in/kaushal-patel-084a8724a/",
     github: "https://github.com/Kaushall12",
-    objective: "MSc IT student aspiring DevOps Engineer with a foundation in Linux, Git/GitHub, and AWS EC2 including basic EBS volume management. Seeking a fresher-level DevOps role to support and learn automation, CI/CD practices, and cloud operations in real-world environments."
+    objective: "DevOps-focused MSc IT student with hands-on exposure to Linux systems, Git/GitHub workflows, and AWS EC2 with EBS management. Experienced in deploying applications, automating tasks using shell scripting, and exploring CI/CD pipelines. Committed to building production-ready cloud solutions and continuously improving system reliability and efficiency."
   },
   education: [
     {

@@ -12,8 +12,7 @@ const Contact = () => {
             <div className="container">
                 <h2 style={{ marginBottom: '1rem' }}>Get In Touch</h2>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-                    I am currently looking for full-time opportunities as a DevOps Engineer.
-                    Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                    I am actively seeking full-time opportunities as a DevOps Engineer where I can contribute to automation, CI/CD implementation, and cloud infrastructure projects. If you're hiring or would like to collaborate, let’s connect.
                 </p>
 
                 <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-outline" style={{ marginBottom: '4rem', padding: '1rem 2rem' }}>
