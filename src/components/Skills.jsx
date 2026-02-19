@@ -21,46 +21,121 @@ const Skills = () => {
     const categories = Object.keys(resumeData.skills);
 
     return (
-        <section id="skills" className="section" style={{ background: 'var(--bg-card)' }}>
-            <div className="container">
-                <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Technical Skills</h2>
+        <section id="skills" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+            {/* Background enhancement */}
+            <div style={{
+                position: 'absolute',
+                top: '20%',
+                left: '-10%',
+                width: '500px',
+                height: '500px',
+                background: 'radial-gradient(circle, rgba(189, 0, 255, 0.1) 0%, transparent 70%)',
+                filter: 'blur(80px)',
+                zIndex: -1
+            }}></div>
+            <div style={{
+                position: 'absolute',
+                bottom: '10%',
+                right: '-10%',
+                width: '500px',
+                height: '500px',
+                background: 'radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%)',
+                filter: 'blur(80px)',
+                zIndex: -1
+            }}></div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+            <div className="container">
+                <motion.h2
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{
+                        textAlign: 'center',
+                        marginBottom: '4rem',
+                        fontSize: '2.5rem',
+                        background: 'var(--gradient-primary)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        display: 'inline-block',
+                        width: '100%'
+                    }}
+                >
+                    Technical Skills
+                </motion.h2>
+
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gap: '2rem'
+                    }}
+                >
                     {categories.map((category) => (
                         <motion.div
                             key={category}
                             variants={item}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true }}
+                            whileHover={{
+                                scale: 1.02,
+                                rotateY: 5,
+                                rotateX: -5,
+                                boxShadow: '0 20px 40px -10px rgba(0, 243, 255, 0.15)'
+                            }}
                             style={{
-                                background: 'rgba(3, 0, 20, 0.4)',
-                                padding: '1.5rem',
-                                borderRadius: '0.75rem',
-                                border: '1px solid rgba(0, 243, 255, 0.1)',
-                                backdropFilter: 'blur(10px)'
+                                background: 'rgba(17, 25, 40, 0.6)',
+                                padding: '2rem',
+                                borderRadius: '1rem',
+                                border: '1px solid rgba(255, 255, 255, 0.05)',
+                                backdropFilter: 'blur(16px)',
+                                transformStyle: 'preserve-3d',
+                                perspective: '1000px'
                             }}
                         >
-                            <h3 style={{ textTransform: 'capitalize', color: 'var(--accent-primary)', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
+                            <h3 style={{
+                                textTransform: 'capitalize',
+                                color: 'var(--text-primary)',
+                                marginBottom: '1.5rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.75rem',
+                                fontSize: '1.25rem'
+                            }}>
+                                <span style={{
+                                    display: 'inline-block',
+                                    width: '8px',
+                                    height: '8px',
+                                    borderRadius: '50%',
+                                    background: 'var(--accent-primary)',
+                                    boxShadow: '0 0 10px var(--accent-primary)'
+                                }}></span>
                                 {category === 'devops' ? 'DevOps & Cloud' : category}
                             </h3>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                                 {resumeData.skills[category].map((skill) => (
-                                    <span key={skill} style={{
-                                        fontSize: '0.85rem',
-                                        padding: '0.25rem 0.75rem',
-                                        borderRadius: '1rem',
-                                        background: 'rgba(189, 0, 255, 0.15)',
-                                        color: 'var(--accent-primary)',
-                                        fontFamily: 'var(--font-mono)'
-                                    }}>
+                                    <motion.span
+                                        key={skill}
+                                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0, 243, 255, 0.15)' }}
+                                        style={{
+                                            fontSize: '0.9rem',
+                                            padding: '0.5rem 1rem',
+                                            borderRadius: '2rem',
+                                            background: 'rgba(255, 255, 255, 0.03)',
+                                            color: 'var(--text-secondary)',
+                                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                                            cursor: 'default',
+                                            transition: 'all 0.3s ease'
+                                        }}
+                                    >
                                         {skill}
-                                    </span>
+                                    </motion.span>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
