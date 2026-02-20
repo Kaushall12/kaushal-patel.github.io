@@ -23,9 +23,9 @@ const Navbar = () => {
             top: 0,
             width: '100%',
             zIndex: 1000,
-            backgroundColor: 'rgba(3, 0, 20, 0.85)',
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(0, 243, 255, 0.1)',
+            borderBottom: '1px solid var(--border-color)',
             transition: 'all 0.3s ease'
         }}>
             <div className="container" style={{
@@ -117,9 +117,9 @@ const Navbar = () => {
                     right: -100%;
                     width: 70%;
                     height: 100vh;
-                    background-color: rgba(3, 0, 20, 0.95);
+                    background-color: rgba(255, 255, 255, 0.95);
                     backdrop-filter: blur(15px);
-                    border-left: 1px solid rgba(0, 243, 255, 0.1);
+                    border-left: 1px solid var(--border-color);
                     display: flex;
                     align-items: center;
                     justify-content: center;

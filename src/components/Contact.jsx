@@ -24,17 +24,17 @@ const Contact = () => {
                         <Mail color="var(--accent-primary)" />
                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{resumeData.personalInfo.email}</span>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                    <a href={`sms:${resumeData.personalInfo.phone}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', cursor: 'pointer' }}>
                         <Phone color="var(--accent-primary)" />
                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{resumeData.personalInfo.phone}</span>
-                    </div>
+                    </a>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
                         <MapPin color="var(--accent-primary)" />
                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{resumeData.personalInfo.location}</span>
                     </div>
                 </div>
 
-                <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                     <div style={{ display: 'flex', gap: '1.5rem' }}>
                         <a href={resumeData.personalInfo.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}>
                             <Github size={20} />

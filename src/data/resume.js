@@ -35,19 +35,22 @@ export const resumeData = {
       title: "MoneyMap - Smart Budget Planner",
       tech: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
       description: "Developed a full-stack budget planner using React.js, Node.js, and MongoDB to help users track finances. Implemented features for categorizing expenses, tracking income, and visualizing financial habits. Followed a structured Git workflow for version control and deployment readiness. Used Tailwind CSS for a responsive and modern user interface.",
-      link: "https://github.com/Kaushall12/Moneymap-Smart-Budget-Planner"
+      link: "https://github.com/Kaushall12/Moneymap-Smart-Budget-Planner",
+      live: "#"
     },
     {
       title: "Warehouse Management System",
       tech: ["HTML", "CSS", "PHP", "MySQL"],
       description: "Built a web-based warehouse management platform using PHP and MySQL to streamline rental operations. Designed distinct roles for Admins, Owners, and Customers with secure authentication. Implemented functionality for managing warehouse listings, rental requests, and inventory tracking. Ensured robust session management and data integrity throughout the application.",
-      link: "https://github.com/Kaushall12/Warehouse-Management-System"
+      link: "https://github.com/Kaushall12/Warehouse-Management-System",
+      live: "#"
     },
     {
       title: "Household Service Provider System",
       tech: ["HTML", "CSS", ".NET MVC", "SQL Server"],
       description: "Created a service booking platform using .NET MVC and SQL Server to connect customers with local service providers. Implemented features for user registration, service searching, and booking management. Designed the application with a clean separation of concerns following MVC architecture patterns. Utilized HTML and CSS for a user-friendly frontend interface.",
-      link: "https://github.com/Kaushall12/Service-Provider-System"
+      link: "https://github.com/Kaushall12/Service-Provider-System",
+      live: "#"
     }
   ],
   certificates: [

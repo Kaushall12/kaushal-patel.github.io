@@ -85,14 +85,14 @@ const Skills = () => {
                                 boxShadow: '0 20px 40px -10px rgba(0, 243, 255, 0.15)'
                             }}
                             style={{
-                                background: 'rgba(17, 25, 40, 0.6)',
                                 padding: '2rem',
                                 borderRadius: '1rem',
-                                border: '1px solid rgba(255, 255, 255, 0.05)',
-                                backdropFilter: 'blur(16px)',
+                                border: '1px solid white',
                                 transformStyle: 'preserve-3d',
-                                perspective: '1000px'
+                                perspective: '1000px',
+                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                             }}
+                            className="glass-card"
                         >
                             <h3 style={{
                                 textTransform: 'capitalize',
@@ -101,15 +101,16 @@ const Skills = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '0.75rem',
-                                fontSize: '1.25rem'
+                                fontSize: '1.4rem',
+                                fontWeight: '700'
                             }}>
                                 <span style={{
                                     display: 'inline-block',
-                                    width: '8px',
-                                    height: '8px',
+                                    width: '10px',
+                                    height: '10px',
                                     borderRadius: '50%',
                                     background: 'var(--accent-primary)',
-                                    boxShadow: '0 0 10px var(--accent-primary)'
+                                    boxShadow: '0 0 15px var(--accent-primary)'
                                 }}></span>
                                 {category === 'devops' ? 'DevOps & Cloud' : category}
                             </h3>
@@ -117,17 +118,9 @@ const Skills = () => {
                                 {resumeData.skills[category].map((skill) => (
                                     <motion.span
                                         key={skill}
-                                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0, 243, 255, 0.15)' }}
-                                        style={{
-                                            fontSize: '0.9rem',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '2rem',
-                                            background: 'rgba(255, 255, 255, 0.03)',
-                                            color: 'var(--text-secondary)',
-                                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                                            cursor: 'default',
-                                            transition: 'all 0.3s ease'
-                                        }}
+                                        whileHover={{ scale: 1.05, y: -2 }}
+                                        className="badge badge-tech"
+                                        style={{ fontSize: '0.95rem' }}
                                     >
                                         {skill}
                                     </motion.span>

@@ -28,13 +28,13 @@ const Hero = () => {
                     <h2 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontFamily: 'var(--font-mono)' }}>
                         Hello, I am
                     </h2>
-                    <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem', lineHeight: 1.1 }}>
+                    <h1 className="text-gradient" style={{ fontSize: '4rem', marginBottom: '1rem', lineHeight: 1.1, fontWeight: '800' }}>
                         {resumeData.personalInfo.name}
                     </h1>
-                    <h3 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+                    <h3 style={{ fontSize: '1.75rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontWeight: '600' }}>
                         {resumeData.personalInfo.title}
                     </h3>
-                    <p style={{ maxWidth: '500px', marginBottom: '2rem', color: 'var(--text-secondary)' }}>
+                    <p style={{ maxWidth: '500px', marginBottom: '2rem', color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6' }}>
                         {resumeData.personalInfo.objective}
                     </p>
 
@@ -50,7 +50,7 @@ const Hero = () => {
 
                 {/* Right Content - Terminal Visual */}
                 <motion.div
-                    className="terminal-card"
+                    className="terminal-card glass-card"
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{
                         opacity: 1,
@@ -70,31 +70,28 @@ const Hero = () => {
                         rotateY: 5,
                         rotateX: -5,
                         scale: 1.02,
-                        boxShadow: '0 25px 50px -12px rgba(0, 243, 255, 0.2)'
+                        boxShadow: '0 25px 50px -12px rgba(37, 99, 235, 0.25)'
                     }}
                     style={{
-                        background: 'var(--bg-card)',
                         padding: '1.5rem',
                         borderRadius: '0.75rem',
-                        border: '1px solid rgba(0, 243, 255, 0.1)',
-                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                        backdropFilter: 'blur(10px)',
+                        border: '1px solid white',
                         fontFamily: 'var(--font-mono)',
                         perspective: '1000px',
                         transformStyle: 'preserve-3d'
                     }}
                 >
-                    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(148, 163, 184, 0.1)' }}>
+                    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)' }}>
                         <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ef4444' }}></div>
                         <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#f59e0b' }}></div>
                         <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#10b981' }}></div>
                         <div style={{ marginLeft: 'auto', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>zsh — 80x24</div>
                     </div>
-                    <div style={{ color: '#e2e8f0' }}>
+                    <div style={{ color: 'var(--text-primary)' }}>
                         <p>
-                            <span style={{ color: '#00ff9d' }}>➜</span>
-                            <span style={{ color: 'var(--accent-primary)', margin: '0 0.5rem' }}>~</span>
-                            <span style={{ color: 'var(--text-primary)' }}>neofetch</span>
+                            <span style={{ color: '#10b981', fontWeight: 'bold' }}>➜</span>
+                            <span style={{ color: 'var(--accent-primary)', margin: '0 0.5rem', fontWeight: 'bold' }}>~</span>
+                            <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>neofetch</span>
                         </p>
                         <br />
                         <div className="terminal-content" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'start' }}>
@@ -104,24 +101,24 @@ const Hero = () => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 padding: '1rem',
-                                background: 'rgba(0, 243, 255, 0.1)',
+                                background: 'rgba(37, 99, 235, 0.1)',
                                 borderRadius: '0.5rem'
                             }}>
                                 <Terminal size={48} />
                             </div>
-                            <div style={{ fontSize: '0.9rem', lineHeight: 1.8 }}>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>User:</span> {resumeData.personalInfo.name}</p>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>Role:</span> DevOps Engineer</p>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>Shell:</span> zsh</p>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>Cloud:</span> AWS (EC2, EBS)</p>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>OS:</span> Linux, Windows</p>
-                                <p><span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>Uptime:</span> 24/7 Learning</p>
+                            <div style={{ fontSize: '0.95rem', lineHeight: 1.8 }}>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>User:</span> <span style={{ fontWeight: '600' }}>{resumeData.personalInfo.name}</span></p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Role:</span> <span style={{ fontWeight: '600', color: 'var(--accent-primary)' }}>DevOps Engineer</span></p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Shell:</span> zsh</p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Cloud:</span> <span style={{ fontWeight: '600', color: 'var(--accent-primary)' }}>AWS (EC2, EBS)</span></p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>OS:</span> Linux, Windows</p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Uptime:</span> <span style={{ color: '#10b981', fontWeight: '600' }}>24/7 Learning</span></p>
                             </div>
                         </div>
                         <p className="cursor-animate" style={{ marginTop: '1.5rem' }}>
-                            <span style={{ color: '#00ff9d' }}>➜</span>
+                            <span style={{ color: '#10b981' }}>➜</span>
                             <span style={{ color: 'var(--accent-primary)', margin: '0 0.5rem' }}>~</span>
-                            <span className="blinking-cursor" style={{ background: 'var(--text-secondary)', width: '10px', height: '1.2rem', display: 'inline-block', verticalAlign: 'middle' }}></span>
+                            <span className="blinking-cursor" style={{ background: 'var(--text-primary)', width: '10px', height: '1.2rem', display: 'inline-block', verticalAlign: 'middle' }}></span>
                         </p>
                     </div>
                 </motion.div>

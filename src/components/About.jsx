@@ -12,25 +12,61 @@ const About = () => {
                             <span style={{ color: 'var(--accent-primary)' }}>/</span> Education
                         </h2>
                         {resumeData.education.map((edu, index) => (
-                            <div key={index} style={{ marginBottom: '2rem', paddingLeft: '1rem', borderLeft: '2px solid var(--accent-primary)' }}>
-                                <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>{edu.title}</h3>
-                                <p style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>{edu.institution}</p>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--accent-secondary)' }}>{edu.year}</p>
-                                {edu.details && <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>{edu.details}</p>}
+                            <div key={index} style={{ marginBottom: '2rem', paddingLeft: '1.5rem', borderLeft: '3px solid var(--accent-primary)', position: 'relative' }}>
+                                <span style={{
+                                    position: 'absolute',
+                                    left: '-9px',
+                                    top: '0',
+                                    width: '15px',
+                                    height: '15px',
+                                    background: 'var(--accent-primary)',
+                                    borderRadius: '50%',
+                                    border: '3px solid white'
+                                }}></span>
+                                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', fontWeight: '700', color: 'var(--text-primary)' }}>{edu.title}</h3>
+                                <p style={{ color: 'var(--accent-primary)', marginBottom: '0.4rem', fontWeight: '600', fontSize: '1rem' }}>{edu.institution}</p>
+                                <div style={{
+                                    display: 'inline-block',
+                                    background: 'rgba(37, 99, 235, 0.1)',
+                                    color: 'var(--accent-primary)',
+                                    padding: '0.2rem 0.6rem',
+                                    borderRadius: '4px',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '500',
+                                    marginBottom: '0.5rem'
+                                }}>
+                                    {edu.year}
+                                </div>
+                                {edu.details && <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginTop: '0.5rem', lineHeight: '1.6' }}>{edu.details}</p>}
                             </div>
                         ))}
                     </div>
 
                     {/* Certifications */}
                     <div>
-                        <h2 style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <h2 className="text-gradient" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '2rem' }}>
                             <span style={{ color: 'var(--accent-primary)' }}>/</span> Certifications & Awards
                         </h2>
                         <ul style={{ listStyle: 'none' }}>
                             {resumeData.certificates.map((cert, index) => (
-                                <li key={index} style={{ marginBottom: '1rem', display: 'flex', gap: '0.5rem' }}>
-                                    <span style={{ color: 'var(--accent-secondary)' }}>▹</span>
-                                    <span style={{ color: 'var(--text-secondary)' }}>{cert}</span>
+                                <li key={index} style={{
+                                    marginBottom: '1rem',
+                                    display: 'flex',
+                                    gap: '1rem',
+                                    alignItems: 'baseline',
+                                    background: 'white',
+                                    padding: '1rem',
+                                    borderRadius: '0.5rem',
+                                    border: '1px solid var(--border-color)',
+                                    boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
+                                    transition: 'transform 0.2s',
+                                    cursor: 'default'
+                                }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(5px)'; e.currentTarget.style.borderColor = 'var(--accent-primary)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; }}
+                                >
+                                    <span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>▹</span>
+                                    <span style={{ color: 'var(--text-primary)', fontWeight: '500', lineHeight: 1.5 }}>{cert}</span>
                                 </li>
                             ))}
                         </ul>
