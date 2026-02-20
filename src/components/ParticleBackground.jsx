@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-const ThreeBackground = () => {
+const ParticleBackground = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -11,24 +11,31 @@ const ThreeBackground = () => {
         const ctx = canvas.getContext('2d');
         let animationFrameId;
         let particles = [];
-        const particleCount = 60;
-        const connectionDistance = 150;
 
-        // Resize canvas
+        // Configuration matching the slate theme
+        const config = {
+            particleCount: 60,
+            connectionDistance: 150,
+            color: '100, 116, 139', // Slate-500 RGB
+            lineColor: '148, 163, 184', // Slate-400 RGB
+            opacity: 0.4,
+            speed: 0.3
+        };
+
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
+
         window.addEventListener('resize', resize);
         resize();
 
-        // Particle class
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
+                this.vx = (Math.random() - 0.5) * config.speed;
+                this.vy = (Math.random() - 0.5) * config.speed;
                 this.size = Math.random() * 2 + 1;
             }
 
@@ -36,39 +43,33 @@ const ThreeBackground = () => {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Bounce off edges
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(100, 116, 139, 0.5)'; // Slate-500 equivalent
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${config.color}, ${config.opacity})`;
                 ctx.fill();
             }
         }
 
-        // Initialize particles
         const init = () => {
             particles = [];
-            for (let i = 0; i < particleCount; i++) {
+            for (let i = 0; i < config.particleCount; i++) {
                 particles.push(new Particle());
             }
         };
-        init();
 
-        // Animation loop
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update and draw particles
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
 
-            // Draw connections
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -79,7 +80,6 @@ const ThreeBackground = () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        // Opacity based on distance
                         const alpha = 1 - (dist / config.connectionDistance);
                         ctx.strokeStyle = `rgba(${config.lineColor}, ${alpha * 0.2})`;
                         ctx.lineWidth = 1;
@@ -101,19 +101,26 @@ const ThreeBackground = () => {
     }, []);
 
     return (
-        <canvas
-            ref={canvasRef}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                pointerEvents: 'none',
-                zIndex: 0 // Behind content
-            }}
-        />
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: -1, // Ensure it is behind content
+            background: 'transparent',
+            pointerEvents: 'none'
+        }}>
+            <canvas
+                ref={canvasRef}
+                style={{
+                    display: 'block',
+                    width: '100%',
+                    height: '100%'
+                }}
+            />
+        </div>
     );
 };
 
-export default ThreeBackground;
+export default ParticleBackground;
