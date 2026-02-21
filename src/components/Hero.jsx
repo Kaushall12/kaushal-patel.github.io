@@ -108,7 +108,7 @@ const Hero = () => {
                             </div>
                             <div style={{ fontSize: '0.95rem', lineHeight: 1.8 }}>
                                 <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>User:</span> <span style={{ fontWeight: '600' }}>{resumeData.personalInfo.name}</span></p>
-                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Role:</span> <span style={{ fontWeight: '600', color: 'var(--accent-primary)' }}>DevOps Engineer</span></p>
+                                <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Role:</span> <span style={{ fontWeight: '600', color: 'var(--accent-primary)' }}>{resumeData.personalInfo.title}</span></p>
                                 <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Shell:</span> zsh</p>
                                 <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>Cloud:</span> <span style={{ fontWeight: '600', color: 'var(--accent-primary)' }}>AWS (EC2, EBS)</span></p>
                                 <p><span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>OS:</span> Linux, Windows</p>
